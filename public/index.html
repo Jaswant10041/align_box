@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Fun Friday Group — Chat</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="header-left">
+          <button id="backBtn" class="back">←</button>
+          <img 
+            src="https://i.pravatar.cc/40?img=5"
+            alt="group"
+            class="group-avatar"
+          />
+          <div>
+            <div class="group-name">Fun Friday Group</div>
+          </div>
+        </div>
+        <button id="anonToggle" class="anon-toggle">
+          👤
+        </button>
+      </header>
+
+      <main id="chatContainer" class="chat-container">
+        <div id="messages" class="messages"></div>
+      </main>
+
+      <div id="anonBanner" class="anon-banner hidden">
+        <div class="anon-row">Now you are apearing as Anonymous!</div>
+      </div>
+
+      <footer class="composer">
+        <div class="input-container">
+          <input
+            id="messageInput"
+            class="input"
+            placeholder="Type a message ..."
+            autocomplete="off"
+          />
+          <div class="input-actions">
+            <button class="input-icon">📷</button>
+            <button class="input-icon">🔗</button>
+          </div>
+        </div>
+        <div class="composer-actions">
+          <button id="sendBtn" class="send">→</button>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
