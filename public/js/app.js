@@ -25,7 +25,16 @@ const input = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
 const anonToggle = document.getElementById("anonToggle");
 
-let userName = "You";
+// Generate a random username
+function generateUsername() {
+  const adjectives = ['Happy', 'Lucky', 'Clever', 'Swift', 'Bright', 'Cool'];
+  const nouns = ['Star', 'Bird', 'Cat', 'Fox', 'Wolf', 'Bear'];
+  const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  return `${adj}${noun}`;
+}
+
+let userName = generateUsername();
 let anonymous = false;
 let clientId = `client_${Math.random().toString(36).substr(2, 9)}`;
 const groupId = 1;
@@ -67,7 +76,7 @@ function addMessageToDOM(msg) {
   bubble.className =
     "bubble " + (msg.client_id === clientId ? "bubble-right" : "bubble-left");
   bubble.innerHTML = `
-    ${msg.anonymous ? "" : `<div class="name-tag">${msg.user_name}</div>`}
+    ${!msg.anonymous && msg.client_id !== clientId ? `<div class="name-tag">${msg.user_name}</div>` : ""}
     ${msg.text}
     <span class="msg-meta">${formatTime(msg.created_at)}</span>
   `;

@@ -177,7 +177,7 @@ body {
   font-size: 12px;
   margin-bottom: 4px;
   color: #333;
-  display: none;
+  display: block;
 }
 
 .composer {
